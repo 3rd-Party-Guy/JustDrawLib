@@ -3,13 +3,13 @@
 #include <SDL.h>
 #include "triangle.h"
 #include "circle.h"
-
+#include "quad.h"
 using namespace std;
 
 SDL_Renderer* renderer;
 SDL_Window* window;
 
-unsigned height = 480, width = 620;
+unsigned height = 240, width = 640;
 
 void Init();
 void Quit();
@@ -18,12 +18,25 @@ int main(int argc, const char* argv[])
 {
 	Init();
 	Triangle t = Triangle(
-		Vertice(10.0f, 470.0f),
+		Vertice(10.0f, 230.0f),
 		Vertice(310.0f, 10.0f),
-		Vertice(610.0f, 470.0f)
+		Vertice(610.0f, 230.0f)
 	);
 
-	Circle c = Circle(Vertice(310, 240), 100);
+	Triangle t1 = Triangle(
+		Vertice(0, 235),
+		Vertice(310, 5),
+		Vertice(620, 235)
+	);
+
+	Circle c = Circle(Vertice(310, 120), 50);
+
+	Quad q = Quad(
+		Vertice(0, 240),
+		Vertice(0, 120),
+		Vertice(320, 120),
+		Vertice(320, 240)
+	);
 
 	bool quit = false;
 
@@ -47,11 +60,13 @@ int main(int argc, const char* argv[])
 		SDL_RenderClear(renderer);
 		
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, SDL_ALPHA_OPAQUE);
-		t.Draw(renderer, window);
+		t1.Draw(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 0, 255, 255, SDL_ALPHA_OPAQUE);
 		t.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		c.DrawFilled(renderer, window);
+		SDL_SetRenderDrawColor(renderer, 128, 128, 128, SDL_ALPHA_OPAQUE);
+		q.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 		
 		SDL_RenderPresent(renderer);
