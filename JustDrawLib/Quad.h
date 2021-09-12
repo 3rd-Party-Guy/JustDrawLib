@@ -42,11 +42,11 @@ public:
 
 	void DrawFilled(SDL_Renderer* renderer, SDL_Window* window) {
 		int l = vertices[0].x - vertices[3].x;
-		int h = vertices[0].y = vertices[0].y;
+		int h = vertices[0].y - vertices[2].y;
 
-		for(int i = 0; i < h; i++)
+		for (int i = 0; i < h; i++)
 		{
-			SDL_RenderDrawLine(renderer, vertices[0].x, vertices[0].y + i, vertices[0].x - l, vertices[0].y - l);	// This doesn't work.
+			SDL_RenderDrawLine(renderer, vertices[0].x, vertices[0].y - i, vertices[0].x - l, vertices[0].y - i);
 		}
 	}
 

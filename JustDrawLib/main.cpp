@@ -4,6 +4,8 @@
 #include "triangle.h"
 #include "circle.h"
 #include "quad.h"
+#include "polygon.h"
+
 using namespace std;
 
 SDL_Renderer* renderer;
@@ -17,7 +19,7 @@ void Quit();
 int main(int argc, const char* argv[])
 {
 	Init();
-	Triangle t = Triangle(
+	Polygon p = Polygon(
 		Vertice(10.0f, 230.0f),
 		Vertice(310.0f, 10.0f),
 		Vertice(610.0f, 230.0f)
@@ -62,7 +64,7 @@ int main(int argc, const char* argv[])
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, SDL_ALPHA_OPAQUE);
 		t1.Draw(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 0, 255, 255, SDL_ALPHA_OPAQUE);
-		t.DrawFilled(renderer, window);
+		p.DrawFilledSimple(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		c.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 128, 128, 128, SDL_ALPHA_OPAQUE);
