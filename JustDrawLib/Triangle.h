@@ -21,15 +21,13 @@ public:
 		vertices[2] = p3;
 	}
 
-	void Draw(SDL_Color color, SDL_Renderer* renderer, SDL_Window* window) {
+	void Draw(SDL_Color color, SDL_Renderer* renderer) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-		SDL_RenderDrawLine(renderer, vertices[0].x, vertices[0].y, vertices[1].x, vertices[1].y);
-		SDL_RenderDrawLine(renderer, vertices[1].x, vertices[1].y, vertices[2].x, vertices[2].y);
-		SDL_RenderDrawLine(renderer, vertices[2].x, vertices[2].y, vertices[0].x, vertices[0].y);
+		Draw(renderer);
 	}
 
-	void Draw(SDL_Renderer* renderer, SDL_Window* window) {
+	void Draw(SDL_Renderer* renderer) {
 		SDL_RenderDrawLine(renderer, vertices[0].x, vertices[0].y, vertices[1].x, vertices[1].y);
 		SDL_RenderDrawLine(renderer, vertices[1].x, vertices[1].y, vertices[2].x, vertices[2].y);
 		SDL_RenderDrawLine(renderer, vertices[2].x, vertices[2].y, vertices[0].x, vertices[0].y);
@@ -75,37 +73,6 @@ public:
 	{
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-		const int polyCorners = (sizeof(vertices) / sizeof(*vertices));
-
-		float polyX[polyCorners], polyY[polyCorners];
-
-		for (int i = 0; i < polyCorners; i++)
-		{
-			polyX[i] = vertices[i].x;
-			polyY[i] = vertices[i].y;
-		}
-
-		int j = polyCorners - 1;
-
-		int w, h;
-		SDL_GetWindowSize(window, &w, &h);
-
-		for (int y = 0; y < h; y++)
-			for (int x = 0; x < w; x++)
-			{
-				bool oddNodes = false;
-				for (int i = 0; i < polyCorners; i++)
-				{
-					if ((polyY[i] < y && polyY[j] >= y ||
-						polyY[j] < y && polyY[i] >= y)
-						&& (polyX[i] <= x || polyX[j] <= x)) {
-						oddNodes ^= (polyX[i] + (y - polyY[i]) / (polyY[j] - polyY[i]) * (polyX[j] - polyX[i]) < x);
-					}
-					j = i;
-				}
-				if (oddNodes) {
-					SDL_RenderDrawPoint(renderer, x, y);
-				}
-			}
+		DrawFilled(renderer, window);
 	}
 };

@@ -1,6 +1,8 @@
 #include <stdio.h>
+
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
+
 #include "triangle.h"
 #include "circle.h"
 #include "quad.h"
@@ -19,6 +21,7 @@ void Quit();
 int main(int argc, const char* argv[])
 {
 	Init();
+
 	Polygon p = Polygon(
 		Vertice(10.0f, 230.0f),
 		Vertice(310.0f, 10.0f),
@@ -62,9 +65,9 @@ int main(int argc, const char* argv[])
 		SDL_RenderClear(renderer);
 		
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, SDL_ALPHA_OPAQUE);
-		t1.Draw(renderer, window);
+		t1.Draw(renderer);
 		SDL_SetRenderDrawColor(renderer, 0, 255, 255, SDL_ALPHA_OPAQUE);
-		p.DrawFilledSimple(renderer, window);
+		p.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		c.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 128, 128, 128, SDL_ALPHA_OPAQUE);

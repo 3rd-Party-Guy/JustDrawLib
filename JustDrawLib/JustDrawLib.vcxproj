@@ -143,11 +143,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
-    <ClInclude Include="polygon.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="Quad.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Triangle.h" />
-    <ClInclude Include="vertice.h" />
+    <ClInclude Include="Vertice.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

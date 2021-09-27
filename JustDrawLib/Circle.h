@@ -37,7 +37,7 @@ public:
 		radius = _radius;
 	}
 
-	void Draw(SDL_Renderer* renderer, SDL_Window* window) {
+	void Draw(SDL_Renderer* renderer) {
 		int x = 0, y = radius;
 		int d = 3 - 2 * radius;
 
@@ -59,28 +59,10 @@ public:
 		}
 	}
 
-	void Draw(SDL_Color color, SDL_Renderer* renderer, SDL_Window* window) {
+	void Draw(SDL_Color color, SDL_Renderer* renderer) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-		int x = 0, y = radius;
-		int d = 3 - 2 * radius;
-
-		DrawCircle(renderer, vertice.x, vertice.y, x, y);
-
-		while (y >= x)
-		{
-			x++;
-
-			if (d > 0)
-			{
-				y--;
-				d = d + 4 * (x - y) + 10;
-			}
-			else
-				d = d + 4 * x + 6;
-
-			DrawCircle(renderer, vertice.x, vertice.y, x, y);
-		}
+		Draw(renderer);
 	}
 
 	void DrawFilled(SDL_Renderer* renderer, SDL_Window* window) {
@@ -107,6 +89,8 @@ public:
 
 	void DrawFilled(SDL_Color color, SDL_Renderer* renderer, SDL_Window* window) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+		DrawFilled(renderer, window);
 	}
 };
 
