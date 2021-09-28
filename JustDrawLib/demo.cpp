@@ -67,7 +67,8 @@ int main(int argc, const char* argv[])
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, SDL_ALPHA_OPAQUE);
 		t1.Draw(renderer);
 		SDL_SetRenderDrawColor(renderer, 0, 255, 255, SDL_ALPHA_OPAQUE);
-		p.DrawFilled(renderer, window);
+		p.DrawFilled
+		(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		c.DrawFilled(renderer, window);
 		SDL_SetRenderDrawColor(renderer, 128, 128, 128, SDL_ALPHA_OPAQUE);

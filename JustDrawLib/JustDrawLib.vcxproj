@@ -142,12 +142,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Circle.h" />
-    <ClInclude Include="Polygon.h" />
-    <ClInclude Include="Quad.h" />
-    <ClInclude Include="Shape.h" />
-    <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Vertice.h" />
+    <ClInclude Include="circle.h" />
+    <ClInclude Include="polygon.h" />
+    <ClInclude Include="quad.h" />
+    <ClInclude Include="shape.h" />
+    <ClInclude Include="triangle.h" />
+    <ClInclude Include="vertice.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="demo.cpp" />
