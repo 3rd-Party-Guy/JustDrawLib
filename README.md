@@ -67,3 +67,6 @@ int main(int argc, const char* argv[])
 ### DISCLAIMER: This is not clean code! Please be more careful with your projects. (SDL speaking, the JDLib code is perfectly fine. ;))
 
 First we have to include our Circle class, which is done at the top:
+```cpp
+
+#include "JustDrawLib/circle.h"
