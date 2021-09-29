@@ -20,20 +20,19 @@ git clone https://github.com/3rd-Party-Guy/JustDrawLib
 (Please notice that only the "circle.h" is part of the JDLib.
 
 ## Example: Drawing a Filled Circle
-```cpp
 #include <stdio.h>                                                                                   
 #include <SDL.h>                                                                                     
                                                                                                      
-#include "JustDrawLib/quod.h"                                                                                  
+#include "JustDrawLib/circle.h"                                                                                  
                                                                                                      
 SDL_Renderer* renderer;                                                                              
 SDL_Window* window;                                                                                  
                                                                                                      
 unsigned height = 100, width = 100;                                                                  
 
-Quod q = Quod(
-
-SDL_Color quodColor = { 255, 255, 255 };
+Circle c = Circle(
+                Vertice(width/2, height/2),
+                50);
 
 int main(int argc, const char* argv[])                                                               
 {                                                                                                    
@@ -48,8 +47,8 @@ int main(int argc, const char* argv[])
     
     // ACTUAL DRAWING
     SDL_RenderClear(renderer);
-    // Automatically sets color! 
-    q.DrawFilled(quodColor, renderer, window);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+    c.DrawFilled(renderer, window);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
     
     SDL_RenderPresent(renderer);
@@ -59,9 +58,7 @@ int main(int argc, const char* argv[])
     SDL_DestroyRenderer(renderer);                                                                   
     SDL_DestroyWindow(window);                                                                       
     SDL_Quit();                                                                                      
-    
     return 0;                                                                                        
-
 }
 ```
 ### DISCLAIMER: This is not clean code! Please be more careful with your projects. (SDL speaking, the JDLib code is perfectly fine. ;))
