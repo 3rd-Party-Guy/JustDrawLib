@@ -87,3 +87,11 @@ SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 After compiling this is what we get:
 
 ![VirtualBoxVM_73M3qExWkk](https://user-images.githubusercontent.com/24589394/135334954-3cc3d2b8-1a69-4764-ab0c-016fabd57e27.png)
+
+Since setting the color before each shape can become quite tedious, you can just pass in an optional SDL_Color as an argument:
+```
+SDL_Color circleColor = { 255, 255, 255 };
+
+c.DrawFilled(circleColor, renderer, window);
+SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+```
