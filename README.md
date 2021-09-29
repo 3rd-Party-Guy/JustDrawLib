@@ -85,4 +85,5 @@ SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 ```
 
 After compiling this is what we get:
+
 ![VirtualBoxVM_73M3qExWkk](https://user-images.githubusercontent.com/24589394/135334954-3cc3d2b8-1a69-4764-ab0c-016fabd57e27.png)
