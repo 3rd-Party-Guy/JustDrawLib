@@ -8,8 +8,9 @@ Everything, except for Vertice.h builds on top of it.
 ## How to Install:
 Since this is a Header-Only Library, the installation is pretty simple. You can either clone the repository or copy-paste all header files into your project. Then it's just a matter of including them locally.
 Example of installation & usage on Unix (Debian):
-![VirtualBoxVM_E3iPTfnihf](https://user-images.githubusercontent.com/24589394/135331199-78819ce3-3e83-4f09-b9fc-aed39e18cef7.png)
-![grafik](https://user-images.githubusercontent.com/24589394/135331395-49d0f60f-8a24-42fa-ba42-102df3daa586.png)
+```sh
+git clone https://github.com/3rd-Party-Guy/JustDrawLib
+```
 
 (Please notice that only the "circle.h" is part of the JDLib.
 
