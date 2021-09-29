@@ -68,3 +68,10 @@ First we have to include our Circle class, which is done at the top:
 ```cpp
 
 #include "JustDrawLib/circle.h"
+```
+Then we have to create our Circle object:
+```
+Circle c = Circle(
+              Vertice(width/2, height/2),   // center position
+              50);                          // radius
+```
