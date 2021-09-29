@@ -20,6 +20,7 @@ git clone https://github.com/3rd-Party-Guy/JustDrawLib
 (Please notice that only the "circle.h" is part of the JDLib.
 
 ## Example: Drawing a Filled Circle
+```cpp
 #include <stdio.h>                                                                                   
 #include <SDL.h>                                                                                     
                                                                                                      
