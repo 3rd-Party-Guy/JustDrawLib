@@ -11,7 +11,12 @@ Example of installation & usage on Unix (Debian):
 ```sh
 git clone https://github.com/3rd-Party-Guy/JustDrawLib
 ```
+```cpp
+#include <stdio.h>  // actually irrelevant
+#include <SDL.h>    // needed
 
+#include "JustDrawLib/circle.h" // only include what you need!
+```
 (Please notice that only the "circle.h" is part of the JDLib.
 
 ## Example: Drawing a Filled Circle
