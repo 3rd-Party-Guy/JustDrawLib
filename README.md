@@ -75,3 +75,9 @@ Circle c = Circle(
               Vertice(width/2, height/2),   // center position
               50);                          // radius
 ```
+And then we can draw it using the c.DrawFilled(renderer, window) function:
+```
+SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+c.DrawFilled(renderer, window);
+SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+```
