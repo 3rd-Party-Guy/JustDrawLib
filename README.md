@@ -14,7 +14,50 @@ Example of installation & usage on Unix (Debian):
 (Please notice that only the "circle.h" is part of the JDLib.
 
 ## Example: Drawing a Filled Circle
-![VirtualBoxVM_xXYj9zexMr](https://user-images.githubusercontent.com/24589394/135331520-4cb98ace-ca00-498d-a4a6-065201e9299a.png)
+```cpp
+#include <stdio.h>                                                                                   
+#include <SDL.h>                                                                                     
+                                                                                                     
+#include "JustDrawLib/quod.h"                                                                                  
+                                                                                                     
+SDL_Renderer* renderer;                                                                              
+SDL_Window* window;                                                                                  
+                                                                                                     
+unsigned height = 100, width = 100;                                                                  
+
+Quod q = Quod(
+
+SDL_Color quodColor = { 255, 255, 255 };
+
+int main(int argc, const char* argv[])                                                               
+{                                                                                                    
+    // SDL Initialization                                                                            
+    SDL_Init(SDL_INIT_VIDEO);                                                                        
+    window = SDL_CreateWindow("DEMO",                                                                
+            SDL_WINDOWPOS_UNDEFINED,                                                                 
+            SDL_WINDOWPOS_UNDEFINED,                                                                 
+            width, height,                                                                           
+            SDL_WINDOW_SHOWN);                                                                                   
+    renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_SOFTWARE);                                                  
+    
+    // ACTUAL DRAWING
+    SDL_RenderClear(renderer);
+    // Automatically sets color! 
+    q.DrawFilled(quodColor, renderer, window);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+    
+    SDL_RenderPresent(renderer);
+
+    // SDL Deactivation
+    getchar();
+    SDL_DestroyRenderer(renderer);                                                                   
+    SDL_DestroyWindow(window);                                                                       
+    SDL_Quit();                                                                                      
+    
+    return 0;                                                                                        
+
+}
+```
 ### DISCLAIMER: This is not clean code! Please be more careful with your projects. (SDL speaking, the JDLib code is perfectly fine. ;))
 
 First we have to include our Circle class, which is done at the top:
