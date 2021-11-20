@@ -93,3 +93,13 @@ SDL_Color circleColor = { 255, 255, 255 };
 c.DrawFilled(circleColor, renderer, window);
 SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 ```
+
+## Compiling:
+Depending on your setup, compiling on Linux would look something like this:
+```
+gcc main.cpp -o OUTPUT.a `sdl2-config --cflags --libs
+```
+or
+```
+g++ main.cpp -o OUTPUT.a -w -lSDL2
+```
